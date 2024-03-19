@@ -12,7 +12,7 @@ namespace MyPokemonBlazorApp.Context
         {
             var folder = Environment.SpecialFolder.MyDocuments;
             var path = Environment.GetFolderPath(folder);
-            var dbpath = Path.Join(path, "pokemon.db"); //this is my database edited
+            var dbpath = Path.Join(path, "pokemon.db"); //this is my database edited again
             optionsBuilder.UseSqlite($"Data Source={dbpath}");
         }
     }
