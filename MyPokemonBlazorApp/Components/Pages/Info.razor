@@ -12,6 +12,16 @@ else
     <p>No pokemon found for that Id</p>
 }
 
+<div class="card" style="width: 25rem;">
+    <div class="card-body">
+        <h5 class="card-title">@pokemon?.Name</h5>
+        <span class="badge text-bg-primary">@pokemon?.Type</span>
+        <span class="badge text-bg-success">Generation @pokemon?.Generation</span>
+        <div class="progress" role="progressbar" aria-label="HP" aria-valuenow="@pokemon?.HP" aria-valuemin="@pokemon?.HP" aria-valuemax="@pokemon?.HP">
+            <div class="progress-bar" style="width: 0%"></div>
+        </div>
+    </div>
+</div>
 
 @code {
     [Parameter]
