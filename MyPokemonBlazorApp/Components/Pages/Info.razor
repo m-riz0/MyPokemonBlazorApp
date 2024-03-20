@@ -5,21 +5,75 @@
 
 @if (pokemon is not null)
 {
-    <p>@pokemon?.Name</p>
+    
 }
 else
 {
     <p>No pokemon found for that Id</p>
 }
 
-<div class="card" style="width: 25rem;">
+<div class="card" style="width: 50rem;">
     <div class="card-body">
         <h5 class="card-title">@pokemon?.Name</h5>
-        <span class="badge text-bg-primary">@pokemon?.Type</span>
-        <span class="badge text-bg-success">Generation @pokemon?.Generation</span>
-        <div class="progress" role="progressbar" aria-label="HP" aria-valuenow="@pokemon?.HP" aria-valuemin="@pokemon?.HP" aria-valuemax="@pokemon?.HP">
-            <div class="progress-bar" style="width: 0%"></div>
+        <p>
+        <span class="badge rounded-pill text-bg-primary">@pokemon?.Type</span>
+        <span class="badge rounded-pill text-bg-success">Generation @pokemon?.Generation</span>
+            @if (pokemon.Legendary)
+            {
+                <span class="badge rounded-pill bg-warning">Legendary</span>
+            }
+        </p>
+
+        <div class="row g-2 mb-1">
+            <div class="col-md-2">HP:</div>
+            <div class="col-md-9">
+        <div class="progress" role="progressbar" aria-label="HP" aria-valuenow="@pokemon?.HP" aria-valuemin="0" aria-valuemax="255" style="height: 25px">
+                <div class="progress-bar bg-danger" style="width: @(pokemon.HP*100/255)%"></div>
+                </div>
+            </div>
+            <div class="col-md-1">@pokemon.HP</div>
         </div>
+
+        <div class="row g-2 mb-1">
+            <div class="col-md-2">Attack:</div>
+            <div class="col-md-9">
+        <div class="progress" role="progressbar" aria-label="Attack" aria-valuenow="@pokemon?.Attack" aria-valuemin="0" aria-valuemax="255" style="height: 25px">
+                <div class="progress-bar bg-warning" style="width: @(pokemon.Attack*100/255)%"></div>
+                </div>
+            </div>
+            <div class="col-md-1">@pokemon.Attack</div>
+        </div>
+        
+        <div class="row g-2 mb-1">
+            <div class="col-md-2">Defence:</div>
+            <div class="col-md-9">
+        <div class="progress" role="progressbar" aria-label="Defence" aria-valuenow="@pokemon?.Defence" aria-valuemin="0" aria-valuemax="255" style="height: 25px">
+                <div class="progress-bar" style="width: @(pokemon.Defence*100/255)%"></div>
+                </div>
+            </div>
+            <div class="col-md-1">@pokemon.Defence</div>
+        </div>
+
+        <div class="row g-2 mb-1">
+            <div class="col-md-2">Speed:</div>
+            <div class="col-md-9">
+        <div class="progress" role="progressbar" aria-label="Speed" aria-valuenow="@pokemon?.Speed" aria-valuemin="0" aria-valuemax="255" style="height: 25px">
+                <div class="progress-bar bg-success" style="width: @(pokemon.Speed*100/255)%"></div>
+                </div>
+            </div>
+            <div class="col-md-1">@pokemon.Speed</div>
+        </div>
+
+        <div class="row g-2 mb-1">
+            <div class="col-md-2">Total:</div>
+            <div class="col-md-9">
+        <div class="progress" role="progressbar" aria-label="Total" aria-valuenow="@pokemon?.Total" aria-valuemin="0" aria-valuemax="800" style="height: 25px">
+                <div class="progress-bar bg-info" style="width: @(pokemon.Total*100/800)%"></div>
+                </div>
+            </div>
+            <div class="col-md-1">@pokemon.Total</div>
+        </div>
+      
     </div>
 </div>
 
