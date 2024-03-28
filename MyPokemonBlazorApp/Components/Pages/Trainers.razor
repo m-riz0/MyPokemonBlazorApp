@@ -1,9 +1,9 @@
 ﻿@page "/Trainers"
+<PageTitle>Trainers</PageTitle>
+<h1>Trainers</h1>
 @rendermode InteractiveServer
 @inject DatabaseContext DbContext
 @inject NavigationManager NavigationManager
-
-<h3>Trainers</h3>
 
 <div class="row g-0">
     <div class="col-md-12">
@@ -28,7 +28,6 @@
                         <InputText class="form-control" placeholder="Name" @bind-Value="model.Name" />
                         <ValidationMessage For="@(() => model.Name)" />
                     </div>
-
                     <div class="col-md-6">
                         <label for="type" class="form-label">Companion</label>
                         <InputSelect class="form-select" placeholder="Companion" @bind-Value="companionId">
@@ -39,8 +38,6 @@
                         </InputSelect>
                         <ValidationMessage For="@(() => model.Companion)" />
                     </div>
-
-
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary float-end">
                             @(model.Id == 0 ? "Add Trainer" : "Edit Trainer")
@@ -81,9 +78,6 @@
     </tbody>
 </table>
 
-
-
-
 @code {
     private Trainer? trainer;
     private List<Trainer>? trainers;
@@ -93,11 +87,6 @@
     private List<Pokemon> pokemons;
     private int companionId;
     public EventCallback<bool> OnSaved { get; set; }
-
-
-
-
-
 
     private void ShowAddTrainer()
     {
@@ -147,8 +136,6 @@
         await DbContext.SaveChangesAsync();
         await Refresh();
     }
-
-
 
     public Trainer Model
     {
